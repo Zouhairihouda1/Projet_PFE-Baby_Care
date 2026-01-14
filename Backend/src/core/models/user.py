@@ -1,12 +1,24 @@
-from sqlalchemy import Column, Integer, String
-from sqlalchemy.orm import declarative_base
+﻿from pydantic import BaseModel, EmailStr
+from datetime import datetime
+from typing import Optional
 
-Base = declarative_base()
+# User Models
+class UserBase(BaseModel):
+    email: EmailStr
+    full_name: Optional[str] = None
+    phone: Optional[str] = None
 
-class User(Base):
-    __tablename__ = "users"
+class UserCreate(UserBase):
+    password: str
+
+class UserInDB(UserBase):
+    id: int
+    is_active: bool
+    created_at: datetime
+    updated_at: Optional[datetime] = None
     
-    id = Column(Integer, primary_key=True, index=True)
-    username = Column(String(50), unique=True, index=True, nullable=False)
-    email = Column(String(100), unique=True, index=True, nullable=False)
-    hashed_password = Column(String, nullable=False)
+    class Config:
+        from_attributes = True
+
+class UserResponse(UserInDB):
+    pass
