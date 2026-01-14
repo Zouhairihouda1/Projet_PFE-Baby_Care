@@ -1,0 +1,101 @@
+[33mcommit bb4386211e37b0cb1c7feae65fc595d94664db2b[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: hibasaad111 <hibasaad1310@gmail.com>
+Date:   Wed Jan 14 17:59:41 2026 +0100
+
+    feat: add complete backend architecture
+    
+    - API endpoints for all features (auth, babies, health, daily_log, advice, notifications, users)
+    - Core business logic services
+    - SQLAlchemy models and repositories pattern
+    - Database migrations with Alembic
+    - Docker configuration for PostgreSQL and backend
+    - Utility modules (date utils, notifications, validation, advice generator)
+    - Test structure with pytest
+    - Environment configuration examples
+
+.gitignore
+Backend/.env.example
+Backend/Dockerfile
+Backend/alembic.ini
+Backend/docker-compose.yml
+Backend/src/.env.example
+Backend/src/Dockerfile
+Backend/src/alembic.ini
+Backend/src/api/v1/advice/articles/endpoints.py
+Backend/src/api/v1/advice/articles/schemas.py
+Backend/src/api/v1/advice/endpoints.py
+Backend/src/api/v1/advice/faq/endpoints.py
+Backend/src/api/v1/advice/faq/schemas.py
+Backend/src/api/v1/advice/schemas.py
+Backend/src/api/v1/advice/symptoms/endpoints.py
+Backend/src/api/v1/advice/symptoms/schemas.py
+Backend/src/api/v1/daily_log/diapers/endpoints.py
+Backend/src/api/v1/daily_log/diapers/schemas.py
+Backend/src/api/v1/daily_log/endpoints.py
+Backend/src/api/v1/daily_log/feeding/endpoints.py
+Backend/src/api/v1/daily_log/feeding/schemas.py
+Backend/src/api/v1/daily_log/hygiene/endpoints.py
+Backend/src/api/v1/daily_log/hygiene/schemas.py
+Backend/src/api/v1/daily_log/sleep/endpoints.py
+Backend/src/api/v1/daily_log/sleep/schemas.py
+Backend/src/api/v1/health/medical_journal/endpoints.py
+Backend/src/api/v1/health/medical_journal/schemas.py
+Backend/src/api/v1/health/vaccinations/endpoints.py
+Backend/src/api/v1/health/vaccinations/schemas.py
+Backend/src/api/v1/notifications/endpoints.py
+Backend/src/api/v1/notifications/schemas.py
+Backend/src/api/v1/users/endpoints.py
+Backend/src/api/v1/users/schemas.py
+Backend/src/core/config.py
+Backend/src/core/models/baby.py
+Backend/src/core/models/daily_log.py
+Backend/src/core/models/health.py
+Backend/src/core/models/user.py
+Backend/src/core/security.py
+Backend/src/core/services/advice_service.py
+Backend/src/core/services/baby_service.py
+Backend/src/core/services/feeding_service.py
+Backend/src/core/services/health_service.py
+Backend/src/core/services/notification_service.py
+Backend/src/core/services/sleep_service.py
+Backend/src/core/services/user_service.py
+Backend/src/core/services/vaccination_service.py
+Backend/src/db/base.py
+Backend/src/db/migrations/README
+Backend/src/db/migrations/env.py
+Backend/src/db/migrations/script.py.mako
+Backend/src/db/migrations/versions/initial_migration.py
+Backend/src/db/models/advice_model.py
+Backend/src/db/models/baby_model.py
+Backend/src/db/models/biometric_model.py
+Backend/src/db/models/diaper_model.py
+Backend/src/db/models/feeding_model.py
+Backend/src/db/models/medical_record_model.py
+Backend/src/db/models/notification_model.py
+Backend/src/db/models/sleep_model.py
+Backend/src/db/models/user_model.py
+Backend/src/db/models/vaccination_model.py
+Backend/src/db/repositories/advice_repository.py
+Backend/src/db/repositories/baby_repository.py
+Backend/src/db/repositories/base_repository.py
+Backend/src/db/repositories/biometric_repository.py
+Backend/src/db/repositories/diaper_repository.py
+Backend/src/db/repositories/feeding_repository.py
+Backend/src/db/repositories/sleep_repository.py
+Backend/src/db/repositories/user_repository.py
+Backend/src/db/repositories/vaccination_repository.py
+Backend/src/db/session.py
+Backend/src/docker-compose.yml
+Backend/src/tests/api/test_auth.py
+Backend/src/tests/api/test_babies.py
+Backend/src/tests/api/test_daily_log.py
+Backend/src/tests/api/test_health.py
+Backend/src/tests/conftest.py
+Backend/src/tests/core/test_models.py
+Backend/src/tests/core/test_services.py
+Backend/src/utils/advice_generator.py
+Backend/src/utils/date_utils.py
+Backend/src/utils/notification_utils.py
+Backend/src/utils/validation_utils.py
+base.py
+session.py
