@@ -3,8 +3,8 @@
 Application de suivi du développement des bébés.
 
 ## Équipe
-- Développeur Backend: [Votre nom]
-- Développeur Mobile: [Nom du collègue]
+- Développeur Backend: ZOUHAIRI Houda.
+- Développeur Mobile: SAAD Hiba.
 
 ## Structure
 - /Backend - API FastAPI
