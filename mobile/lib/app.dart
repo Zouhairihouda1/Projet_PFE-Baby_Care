@@ -1,15 +1,20 @@
-﻿// app.dart
-// TODO: Implémenter selon les spécifications
+﻿import 'package:flutter/material.dart';
+import 'navigation/app_router.dart';
+import 'core/theme/app_theme.dart';
 
-import 'package:flutter/material.dart';
-
-class app.Value.ToUpper()pp extends StatelessWidget {
-  const app.Value.ToUpper()pp({super.key});
+class BabyCareApp extends StatelessWidget {
+  const BabyCareApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Text('app.dart - À implémenter'),
+    return MaterialApp(
+      title: 'Baby Care',
+      theme: AppTheme.lightTheme,
+      darkTheme: AppTheme.darkTheme,
+      themeMode: ThemeMode.light,
+      initialRoute: '/',
+      onGenerateRoute: AppRouter.generateRoute,
+      debugShowCheckedModeBanner: false,
     );
   }
 }
