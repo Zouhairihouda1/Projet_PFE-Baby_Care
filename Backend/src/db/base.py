@@ -1,27 +1,25 @@
-from sqlalchemy import create_engine
-from sqlalchemy.ext.declarative import declarative_base
+﻿from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
-import os
-from dotenv import load_dotenv
+from sqlalchemy import create_engine
+from sqlalchemy.pool import StaticPool
 
-load_dotenv()
+from core.config import settings
 
-# URL de connexion
-DATABASE_URL = os.getenv(
-    "DATABASE_URL", 
-    "postgresql://babycare:babycare123@localhost:5432/babycare"
+# Create SQLAlchemy engine
+engine = create_engine(
+    settings.DATABASE_URL,
+    connect_args={"check_same_thread": False} if "sqlite" in settings.DATABASE_URL else {},
+    poolclass=StaticPool if "sqlite" in settings.DATABASE_URL else None,
+    echo=True  # Shows SQL queries (disable in production)
 )
 
-# Créer le moteur SQLAlchemy
-engine = create_engine(DATABASE_URL)
-
-# Créer la session
+# Session factory
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
-# Base pour les modèles
+# Base for models
 Base = declarative_base()
 
-# Dépendance pour les sessions
+# Dependency to get DB session
 def get_db():
     db = SessionLocal()
     try:
