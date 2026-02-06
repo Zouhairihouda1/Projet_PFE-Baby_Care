@@ -1,0 +1,69 @@
+﻿import 'package:flutter/material.dart';
+
+void main() {
+  runApp(const BabyCareApp());
+}
+
+class BabyCareApp extends StatelessWidget {
+  const BabyCareApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Baby Care',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: const LoginPage(),
+      debugShowCheckedModeBanner: false,
+    );
+  }
+}
+
+class LoginPage extends StatelessWidget {
+  const LoginPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Connexion'),
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(20.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            TextField(
+              decoration: const InputDecoration(
+                labelText: 'Email',
+                border: OutlineInputBorder(),
+              ),
+            ),
+            const SizedBox(height: 20),
+            TextField(
+              obscureText: true,
+              decoration: const InputDecoration(
+                labelText: 'Mot de passe',
+                border: OutlineInputBorder(),
+              ),
+            ),
+            const SizedBox(height: 30),
+            ElevatedButton(
+              onPressed: () {},
+              child: const Text('Se connecter'),
+              style: ElevatedButton.styleFrom(
+                minimumSize: const Size(double.infinity, 50),
+              ),
+            ),
+            const SizedBox(height: 20),
+            TextButton(
+              onPressed: () {},
+              child: const Text('Créer un compte'),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
