@@ -1,4 +1,4 @@
-# 📁 backend/src/db/migrations/versions/002_create_feedings_table.py
+# 📁 backend/src/db/migrations/versions/xxxx_create_feedings_table.py
 """Create feedings table
 
 Revision ID: xxxx
@@ -66,4 +66,17 @@ def upgrade():
     )
     op.create_index(op.f('ix_feedings_baby_id'), 'feedings', ['baby_id'], unique=False)
     op.create_index(op.f('ix_feedings_id'), 'feedings', ['id'], unique=False)
-    op.create_index(op.f('ix_feedings_start_time'), 'feedings', ['start_time'], unique=False
+    op.create_index(op.f('ix_feedings_start_time'), 'feedings', ['start_time'], unique=False)
+    op.create_index(op.f('ix_feedings_user_id'), 'feedings', ['user_id'], unique=False)
+
+def downgrade():
+    op.drop_index(op.f('ix_feedings_user_id'), table_name='feedings')
+    op.drop_index(op.f('ix_feedings_start_time'), table_name='feedings')
+    op.drop_index(op.f('ix_feedings_id'), table_name='feedings')
+    op.drop_index(op.f('ix_feedings_baby_id'), table_name='feedings')
+    op.drop_table('feedings')
+    
+    # Drop enum types
+    op.execute('DROP TYPE feedingtype')
+    op.execute('DROP TYPE breastside')
+    op.execute('DROP TYPE solidfoodtype')
